@@ -1,0 +1,68 @@
+@import './layout.scss';
+
+// Typography
+
+%h1 {
+    font-size: 28px;
+    line-height: 32px;
+    font-weight: 700;
+
+    @media (min-width: $desktop-breakpoint) {
+        font-size: 32px;
+        line-height: 48px;
+    }
+}
+
+%h2 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+
+    @media (min-width: $desktop-breakpoint) {
+        font-size: 24px;
+        line-height: 40px;
+    }
+}
+
+%h3 {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 700;
+}
+
+%h4 {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+}
+
+%h5 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+
+    @media (min-width: $desktop-breakpoint) {
+        font-size: 18px;
+        line-height: 24px;
+    }
+}
+
+%text-lg {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+%text-md {
+    font-size: 14px;
+    line-height: 20px;
+
+    @media (min-width: $desktop-breakpoint) {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+%text-xs {
+    font-size: 14px;
+    line-height: 20px;
+}

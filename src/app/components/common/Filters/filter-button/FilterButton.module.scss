@@ -1,0 +1,16 @@
+@import 'app/static/styles/variables.scss';
+
+.filterCounter {
+  @extend %text-xs;
+
+  padding-right: 1px;
+  background: white;
+  border-radius: 50%;
+  min-width: 20px;
+  min-height: 20px;
+  margin: 0 0 0 7px;
+  color: $blue-40;
+  text-align: center;
+  font-weight: 500;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}

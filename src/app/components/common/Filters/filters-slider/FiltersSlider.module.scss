@@ -1,0 +1,8 @@
+@import 'app/static/styles/variables.scss';
+
+.sliderTitle {
+  @extend %text-xs;
+  width: 100%;
+  font-weight: 600;
+  margin: 24px 0 46px
+}

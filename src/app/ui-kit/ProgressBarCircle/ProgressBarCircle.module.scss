@@ -1,0 +1,82 @@
+@import 'app/static/styles/variables.scss';
+
+.circular {
+  height: 48px;
+  width: 48px;
+  position: relative;
+}
+.circular .inner {
+  position: absolute;
+  z-index: 6;
+  top: 50%;
+  left: 50%;
+  height: 42px;
+  width: 42px;
+  margin: -21px 0 0 -21px;
+  background: $white-100;
+  border-radius: 100%;
+}
+.circular .number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font-size: 16px;
+  font-weight: 700;
+  color: $blue-60;
+}
+.circular .bar {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: $white-100;
+  -webkit-border-radius: 100%;
+  clip: rect(0px, 48px, 48px, 24px);
+}
+
+.circle {
+  z-index: 999;
+  position: absolute;
+  top: 0;
+}
+
+.circle .bar .progress {
+  position: absolute;
+  height: 100%;
+  -webkit-border-radius: 100%;
+  clip: rect(0px, 24px, 48px, 0px);
+  background: $blue-60;
+}
+
+.circular .progress {
+  top: calc(50% - 12px);
+  text-align: center;
+  width: 100%;
+  z-index: 999;
+  position: absolute;
+}
+
+.circle .left .progress {
+  z-index: 1;
+  animation: left 4s linear both;
+}
+
+@keyframes left {
+  100% {
+    transform: rotate(180deg);
+  }
+}
+.circle .right {
+  transform: rotate(180deg);
+  z-index: 3;
+}
+.circle .right .progress {
+  animation: right 4s linear both;
+  animation-delay: 4s;
+}
+@keyframes right {
+  100% {
+    transform: rotate(180deg);
+  }
+}

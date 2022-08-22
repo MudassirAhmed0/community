@@ -1,0 +1,27 @@
+.wrapper {
+  --star-color: #F28A4F;
+  padding: 0 2px;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+
+  &.selected {
+    path {
+      fill: var(--star-color);
+      stroke: var(--star-color);
+    }
+  }
+}
+
+.large {
+  svg {
+    width: 26px;
+    height: 25px;
+  }
+
+  &+ .large {
+    margin-left: 18px;
+  }
+}

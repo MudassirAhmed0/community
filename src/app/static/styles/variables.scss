@@ -1,0 +1,60 @@
+@import './colors.scss';
+@import './typography.scss';
+
+// Borders & Shadows
+
+$border: 1px solid $gray-40;
+$border-light: 1px solid $gray-20;
+
+$shadow-xs: 0px 2px 4px rgba(13, 25, 46, 0.1);
+$shadow-md: 0px 4px 16px rgba(13, 25, 46, 0.2);
+$shadow-xl: 0px 16px 24px rgba(13, 25, 46, 0.2);
+$shadow-top: 0px -2px 4px rgba(13, 25, 46, 0.1);
+
+
+// Blocks
+
+%infoBlock {
+    @media (min-width: $desktop-breakpoint) {
+        padding: 32px;
+        border-radius: 8px;
+        border: $border-light;
+    }
+}
+
+%list {
+    padding: 0;
+    list-style: none;
+}
+
+%listItem {
+    position: relative;
+    padding-left: 32px;
+    margin: 16px 0;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 7px;
+        left: 8px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $blue-40;
+    }
+
+    li {
+        margin-left: -16px;
+    }
+
+    a {
+        text-decoration: underline;
+        color: $blue-40;
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: $blue-60;
+        }
+    }
+}

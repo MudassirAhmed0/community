@@ -1,0 +1,25 @@
+@import 'app/static/styles/variables.scss';
+
+.hideableSection {
+  border-bottom: 1px solid $gray-20;
+  padding: 24px 0;
+
+  &:last-of-type {
+    border: none;
+  }
+}
+.hideableTitle {
+  @extend %text-lg;
+  color: $gray-80;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hideableIcon {
+  flex-shrink: 0;
+}
+.titleBold {
+  font-weight: 600;
+}
+.hideableChildren {}

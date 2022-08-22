@@ -1,0 +1,23 @@
+@import 'app/static/styles/variables.scss';
+
+.logo {
+    display: flex;
+    align-items: center;
+    height: 32px;
+}
+.beta {
+    font-size: 8px;
+    line-height: 4px;
+    color: $blue-40;
+    background-color: $blue-20;
+    padding: 6px 8px;
+    border-radius: 12px;
+    font-weight: 700;
+    margin-left: 8px;
+
+    @media (min-width: $desktop-breakpoint) {
+        padding: 6px 12px;
+        font-size: 12px;
+        line-height: 12px;
+    }
+}
