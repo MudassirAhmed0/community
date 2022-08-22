@@ -1,0 +1,129 @@
+@import 'app/static/styles/variables.scss';
+
+.wrapper {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 100;
+}
+.overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1;
+
+    &--dark {
+        background-color: rgba(6, 11, 20, 0.8);
+    }
+}
+.container {
+    position: absolute;
+    background-color: $white-100;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 2;
+    box-shadow: 0px 16px 24px 4px rgba(13, 25, 46, 0.08);
+}
+.content {
+    flex-grow: 1;
+    overflow: auto;
+}
+.close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+
+    .position_center & {
+        top: 22px;
+        right: 38px;
+    }
+
+    .position_right & {
+        top: 22px;
+        right: 16px;
+    }
+}
+.size_xxs {
+    width: 256px;
+    border-radius: 8px;
+}
+.size_xs {
+    width: 360px;
+    border-radius: 8px;
+}
+.size_sm {
+    width: 100%;
+
+    @media (min-width: $desktop-breakpoint) {
+        width: 440px !important;
+    }
+}
+.size_md {
+    width: 100%;
+
+    @media (min-width: $desktop-breakpoint) {
+        width: 672px;
+    }
+}
+.position_center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+}
+.position_right {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 792px;
+
+    .title {
+        padding: 24px 32px;
+    }
+}
+.position_bottom {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    max-height: 75%;
+}
+.position_full {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0;
+}
+.title {
+    position: relative;
+    z-index: 1;
+    background-color: $white-100;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: $shadow-xs;
+
+    svg {
+        margin-left: 16px;
+    }
+
+    .position_center & {
+        @extend %h2;
+        padding: 32px 32px 16px;
+        box-shadow: none;
+    }
+  }
+  .titleIsClickable {
+    cursor: pointer;
+  }

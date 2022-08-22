@@ -1,0 +1,62 @@
+@import 'app/static/styles/variables.scss';
+
+.container {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.field {
+  position: relative;
+}
+
+.input {
+  min-width: 210px;
+  height: 40px;
+  padding: 0 12px;
+  outline: none;
+  transition: border 0.2s ease-in-out;
+  border: $border;
+  box-sizing: border-box;
+  border-radius: 4px;
+
+  &:focus {
+    border-color: var(--default-primary-color);
+  }
+
+  &.error {
+    border-color: var(--color-danger);
+  }
+
+  &::placeholder {
+    color: $gray-60;
+    opacity: 1; /* firefox */
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.eye {
+  position: absolute;
+  bottom: 0;
+  right: 14px;
+  cursor: pointer;
+  height: 40px;
+  line-height: 40px;
+
+  img {
+    vertical-align: middle;
+  }
+}
+
+.eyeClosed {
+}
+
+.title {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+}

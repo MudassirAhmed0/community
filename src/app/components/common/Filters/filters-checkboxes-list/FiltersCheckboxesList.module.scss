@@ -1,0 +1,23 @@
+@import 'app/static/styles/variables.scss';
+
+.horizontalSection {
+  display: flex;
+  flex-direction: row;
+}
+
+.filtersTitle {
+  @extend %text-xs;
+  width: 100%;
+  font-weight: 600;
+  padding: 24px 0 16px;
+  border-top: 1px solid $gray-20;
+  margin-top: 10px;
+}
+
+.checkboxesList {
+  display: grid;
+
+  @media (min-width: $desktop-breakpoint) {
+    grid-template-columns: 1fr 1fr;
+  }
+}

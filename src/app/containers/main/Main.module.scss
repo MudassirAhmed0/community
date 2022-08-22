@@ -1,0 +1,22 @@
+@import 'app/static/styles/variables.scss';
+
+.title {
+  flex: 1;
+  justify-content: space-between !important;
+
+  svg {
+    margin-left: 0;
+  }
+}
+
+.inner {
+  flex: 1;
+  background-color: $gray-10 !important;
+  padding: 16px !important;
+
+  @media (min-width: $desktop-breakpoint) {
+    background-color: $white-100 !important;
+    margin: 0 !important;
+    padding: 32px !important;
+  }
+}

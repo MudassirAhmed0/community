@@ -1,0 +1,43 @@
+@import 'app/static/styles/variables.scss';
+
+.header {
+  position: fixed;
+  top: 57px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  background-color: $white-100;
+  box-shadow: $shadow-xs;
+  transition: transform 0.2s;
+  z-index: 4;
+
+  @media (min-width: $desktop-breakpoint) {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    padding: 16px 32px 6px;
+    box-shadow: none;
+  }
+}
+.headerTitle {
+  color: $black-100;
+  padding: 16px;
+  border-bottom: $border;
+  width: 100%;
+
+  @media (min-width: $desktop-breakpoint) {
+    width: auto;
+    margin: 0 auto 0 0 !important;
+    padding: 0;
+    border: none;
+  }
+
+  svg {
+    margin-left: 10px;
+  }
+}

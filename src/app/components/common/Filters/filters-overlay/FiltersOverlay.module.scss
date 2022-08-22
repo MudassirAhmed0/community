@@ -1,0 +1,22 @@
+@import 'app/static/styles/variables.scss';
+
+.filtersPanel {
+  padding: 16px 24px;
+
+  @media (min-width: $desktop-breakpoint) {
+    padding: 16px 32px 32px;
+  }
+}
+
+.filtersControl {
+  display: flex;
+  justify-content: space-between;
+
+  button:first-child {
+    margin-right: 10px;
+  }
+}
+
+.controlBtn {
+  margin-top: 10px;
+}

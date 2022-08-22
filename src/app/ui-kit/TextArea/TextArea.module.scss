@@ -1,0 +1,36 @@
+@import 'app/static/styles/variables.scss';
+
+.title {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.input {
+  min-width: 210px;
+  height: 120px;
+  width: 100%;
+  padding: 12px;
+  outline: none;
+  transition: border 0.2s ease-in-out;
+  border: $border;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-family: inherit;
+
+  &:focus {
+    border-color: var(--default-primary-color);
+  }
+
+  &.error {
+    border-color: var(--color-danger);
+  }
+
+  &::placeholder {
+    color: $gray-60;
+    opacity: 1; /* firefox */
+    font-family: inherit;
+  }
+}

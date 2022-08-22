@@ -1,0 +1,29 @@
+@import 'app/static/styles/variables.scss';
+
+.container {
+  color: $gray-60;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.item {
+  cursor: pointer;
+  z-index: 1;
+  & + .item {
+    margin-left: 6px;
+    padding-left: 9px;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: inline;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background-color: $gray-60;
+      position: absolute;
+      left: 0;
+      margin-top: 9px;
+    }
+  }
+}

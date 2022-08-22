@@ -1,0 +1,225 @@
+@import 'app/static/styles/variables.scss';
+
+.button {
+  @extend %text-md;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  transition: 0.2s ease;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 0 16px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  font-family: inherit;
+  font-style: normal;
+  font-weight: bold;
+  white-space: nowrap;
+
+  &:focus {
+    border-color: $blue-40 !important;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  svg {
+    &:first-child {
+      margin-right: 12px;
+    }
+
+    &:last-child {
+      margin-left: 12px;
+    }
+
+    &:only-child {
+      margin: 0 !important;
+    }
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    height: 48px;
+  }
+}
+
+// alignment
+.left {
+  justify-content: flex-start;
+}
+
+.center {
+  justify-content: center;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+// secondary
+
+.secondary {
+  border: 1px solid $gray-20;
+  background: $white-100;
+  color: $blue-80;
+
+  &:hover,
+  &:focus {
+    background: $blue-20;
+  }
+
+  &:active {
+    background: $blue-80;
+    color: $white-100;
+  }
+
+  &:disabled {
+    border-color: $gray-20;
+    color: $gray-40;
+  }
+}
+
+.standard {
+  border: 1px solid $blue-20;
+  background: $blue-20;
+  color: $blue-80;
+
+  &:hover,
+  &:focus {
+    border-color: $blue-40;
+    color: $blue-80;
+  }
+
+  &:active {
+    background: $blue-80;
+    color: $white-100;
+  }
+
+  &:disabled {
+    border-color: $gray-10;
+    background: $gray-10;
+    color: $gray-40;
+  }
+}
+
+.secondary-danger {
+  background: $white-100;
+  color: $red-60;
+  border: 1px solid $red-60;
+
+  &:hover,
+  &:focus {
+    background: $red-20;
+    border-color: $red-20;
+  }
+
+  &:active {
+    background: $red-60;
+    border-color: $red-60;
+    color: $white-100;
+  }
+
+  &:disabled {
+    border-color: $red-40;
+    color: $red-40;
+  }
+}
+
+// primary
+
+.primary {
+  background: $blue-40;
+  color: $white-100;
+  border: 1px solid $blue-40;
+
+  &:hover,
+  &:focus {
+    background: $blue-60;
+    border-color: $blue-60;
+    color: $white-100; // rewrite it after remove ant styles
+  }
+
+  &:active {
+    background: $blue-100;
+    border-color: $blue-100;
+    color: $white-100;
+  }
+
+  &:disabled {
+    background: $gray-40;
+    border-color: $gray-40;
+    color: $gray-60;
+  }
+}
+
+.primary-danger {
+  background: $red-60;
+  color: $white-100;
+  border: 1px solid $red-60;
+
+  &:hover,
+  &:focus {
+    background: $red-80;
+    border-color: $red-80;
+  }
+
+  &:active {
+    background: $red-100;
+    border-color: $red-100;
+  }
+
+  &:disabled {
+    background: $red-20;
+    border-color: $red-20;
+    color: $red-40;
+  }
+}
+
+// ghost
+
+.ghost {
+  border: 1px solid transparent;
+  color: $blue-40;
+
+  &:hover,
+  &:active {
+    border: 1px solid $blue-40;
+    color: $blue-100;
+  }
+
+  &:focus {
+    color: $blue-60;
+  }
+
+  &:disabled {
+    color: $gray-60;
+  }
+}
+
+.ghost-danger {
+  border: 1px solid transparent;
+  color: $red-60;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $red-100;
+  }
+
+  &:disabled {
+    color: $red-40;
+  }
+}
+
+.icon {
+  img {
+    margin-right: 8px;
+  }
+}

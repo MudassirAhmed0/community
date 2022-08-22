@@ -1,0 +1,48 @@
+.avatar {
+  background-color: #eee;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  img {
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+
+.size_xs {
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.size_sm {
+  min-width: 32px;
+  width: 32px;
+  height: 32px;
+}
+.size_md {
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+}
+.size_lg {
+  min-width: 48px;
+  width: 48px;
+  height: 48px;
+}
+.size_xl {
+  min-width: 64px;
+  width: 64px;
+  height: 64px;
+}
+
+.letters {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #425171;
+}

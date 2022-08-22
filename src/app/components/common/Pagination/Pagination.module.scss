@@ -1,0 +1,84 @@
+@import 'app/static/styles/variables.scss';
+
+.pagination {
+  flex: 1;
+  display: flex;
+  max-width: 310px;
+  margin: 0 auto 18px !important;
+  flex-wrap: wrap;
+
+  li {
+    @extend %text-md;
+    font-weight: 600;
+    border: 1px solid $gray-20;
+    border-radius: 4px;
+    min-width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: nowrap;
+    background: none;
+    margin-top: 12px;
+    margin-right: 12px;
+
+    &:hover {
+      border-color: $blue-20;
+      background: $blue-20;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:last-child, &:first-child {
+      padding: 0 6px;
+      > div {
+        color: $blue-80;
+      }
+    }
+
+    > div {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $blue-40;
+
+      svg {
+        fill: $blue-40;
+      }
+
+      &[disabled] {
+        color: $gray-40;
+        svg {
+          fill: $gray-40;
+        }
+      }
+    }
+
+    @media (min-width: $desktop-breakpoint) {
+      min-width: 48px;
+      height: 48px;
+
+      &:first-child {
+        padding: 0 16px;
+        margin-right: auto;
+        svg {
+          margin-right: 12px;
+        }
+      }
+      &:last-child {
+        padding: 0 16px;
+        margin-left: auto;
+        svg {
+          margin-left: 12px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    max-width: 100% !important;
+  }
+}

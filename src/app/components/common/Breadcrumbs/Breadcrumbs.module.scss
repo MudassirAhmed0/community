@@ -1,0 +1,27 @@
+@import 'app/static/styles/variables.scss';
+
+.breadcrumbs {
+  @extend %text-md;
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 600;
+}
+.breadcrumb {
+  cursor: pointer;
+  color: $gray-60;
+  display: flex;
+  align-items: center;
+
+  &:last-child {
+    color: $blue-40;
+    cursor: unset;
+  }
+}
+.breadcrumbSpacer {
+  margin: 0 8px;
+  color: $gray-40;
+
+  @media (min-width: $desktop-breakpoint) {
+    margin: 0 16px;
+  }
+}
