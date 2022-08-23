@@ -39,7 +39,9 @@ const CommunityDetail = (props: Props) => {
         />
         <Question post={post} />
         <LeaveComment/>
-        <Answers/>
+        <Answers replies={post?.replies?.nodes}/>
+        
+        
       </Section>
     </Section>
   )

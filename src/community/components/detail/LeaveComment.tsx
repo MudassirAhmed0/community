@@ -1,4 +1,5 @@
  
+import { useAddReply } from '@tribeplatform/react-sdk/hooks'
 import { Avatar, Button } from 'app/ui-kit'
 import { IconFile2 } from 'app/ui-kit/Icons/icon-file2'
 import React from 'react'
@@ -7,6 +8,8 @@ import css from './CommunityDetail.module.scss'
 type Props = {}
 
 const LeaveComment = (props: Props) => {
+
+    // useAddReply()
   return (
     <div className={css.leaveComment}>
         <div className={css.avatar}>

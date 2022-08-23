@@ -1,21 +1,78 @@
 import { Avatar } from 'app/ui-kit'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import css from './CommunityDetail.module.scss'
 
-type Props = {}
+type Props = {
+  reply:any
+}
 
-const Answer = (props: Props) => {
+const Answer = ({reply}: Props) => {
+  const [content,setContent] = useState('')
+  const [img,setImg] = useState('')
+  const [createdAt,setCreatedAt] = useState('')
+
+  useEffect(()=>{
+     let cleanText = reply?.shortContent.replace(/<\/?[^>]+(>|$)/g, "");
+    setContent(cleanText)
+    setImg(reply?.owner?.member?.profilePicture?.url)
+    if(reply?.createdAt){
+      let splitted= reply?.createdAt.split('T')
+      let splitted2 = splitted[0]?.split('-')
+      let month = '' 
+      switch (splitted2[1]) {
+          case '01':
+              month = "January"
+              break;
+          case '02':
+              month = "Feburary"
+              break;
+          case '03':
+              month = "March"
+              break;
+          case '04':
+              month = "April"
+              break;
+          case '05':
+              month = "May"
+              break;
+          case '06':
+              month = "June"
+              break;
+          case '07':
+              month = "July"
+              break;
+          case '08':
+              month = "August"
+              break;
+          case '09':
+              month = "September"
+              break;
+          case '10':
+              month = "October"
+              break;
+          case '11':
+              month = "November"
+              break;
+          case '12':
+              month = "December"
+              break;
+      
+      } 
+      setCreatedAt(`${splitted2[2]} ${month}, ${splitted2[0]}`)
+    }
+  },[reply])
   return (
     <div className={css.answer}>
         <div className={css.avatar}>
             <Avatar
             size='xs'
+            image={img}
             />
-            <span><span>Jenny Wilson</span> •  October 19, 2017 </span>
+            <span><span>{reply?.owner?.member?.name}</span> •  {createdAt} </span>
             
         </div>
          <p>
-         On the career front the program at CBS is well designed and I would highly recommend it to anybody interested in Finance and Consulting. The major consulting companies all recruit on campus and the alumni base in finance is incredibly active. Many students have internships during the school year because there are no classes on Fridays. Getting that chance to work for a hedge fund during class can be the difference for many in getting the job they want at graduation. The school is also strengthening the tech/ entrepreneurship offerings with a new startup lab. The venture market is New York is growing rapidly and many students start a business with their classmates before reaching graduation.
+          {content}
          </p>
     </div>
   )

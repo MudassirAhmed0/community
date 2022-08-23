@@ -2,16 +2,15 @@ import React from 'react'
 import Answer from './Answer'
 import css from './CommunityDetail.module.scss'
 
-type Props = {}
+type Props = {
+  replies:any
+}
 
-const Answers = (props: Props) => {
+const Answers = ({replies}: Props) => {
   return (
     <div className={css.answersContainer}>
-        <Answer/>
-        <Answer/>
-        <Answer/>
-        <Answer/>
-        <Answer/>
+        
+        {replies?.map((reply:any)=> <Answer reply={reply}/> )}
     </div>
   )
 }

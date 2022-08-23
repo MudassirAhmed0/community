@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import css from './CommunityDetail.module.scss'
 import { IconChevron } from 'app/ui-kit/Icons/icon-chevron'; 
 import { IconComment } from 'app/ui-kit/Icons/icon-comment';
@@ -11,7 +11,59 @@ type Props = {
 
 const Question = ({post}: Props) => {
     const {mutate: deletePost} = useDeletePost()
+    const [createdAt,setCreatedAt] = useState('')
+    const [img,setImg] = useState('')
+     
+    useEffect(()=>{
+        setImg(post?.owner?.member?.profilePicture?.url)
+        if(post?.createdAt){
+            let splitted= post?.createdAt.split('T')
+            let splitted2 = splitted[0]?.split('-')
+            let month = '' 
+            switch (splitted2[1]) {
+                case '01':
+                    month = "January"
+                    break;
+                case '02':
+                    month = "Feburary"
+                    break;
+                case '03':
+                    month = "March"
+                    break;
+                case '04':
+                    month = "April"
+                    break;
+                case '05':
+                    month = "May"
+                    break;
+                case '06':
+                    month = "June"
+                    break;
+                case '07':
+                    month = "July"
+                    break;
+                case '08':
+                    month = "August"
+                    break;
+                case '09':
+                    month = "September"
+                    break;
+                case '10':
+                    month = "October"
+                    break;
+                case '11':
+                    month = "November"
+                    break;
+                case '12':
+                    month = "December"
+                    break;
+            
+            } 
+            setCreatedAt(`${splitted2[2]} ${month}, ${splitted2[0]}`)
+        } 
 
+    },[post])
+    // console.log(today.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }));
     const deleteQuestion = ()=> {
         try{
             deletePost({id: post.id})
@@ -48,9 +100,10 @@ const Question = ({post}: Props) => {
                         <div className={css.questionAvatar}>
                             <Avatar
                             size='xs'
+                            image={img}
                             />
                             <div>
-                                <span>Jenny Wilson •  </span> <span>October 19, 2017  </span> <span style={{color: "red", marginLeft: "30px", cursor: "pointer"}} onClick={()=> deleteQuestion()} className={css.tag_hot}>Delete</span>
+                                <span>{post?.owner?.member?.name} •  </span> <span>{createdAt} </span> <span style={{color: "red", marginLeft: "30px", cursor: "pointer"}} onClick={()=> deleteQuestion()} className={css.tag_hot}>Delete</span>
                             </div>
                         </div>
                     </div>
