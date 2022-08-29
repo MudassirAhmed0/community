@@ -1,28 +1,21 @@
-import React from 'react'
+import React from 'react';
 import { Section } from 'app/ui-kit';
 import Breadcrumbs from 'app/components/common/Breadcrumbs';
-import css from './CommunityDetail.module.scss'
+import css from './CommunityDetail.module.scss';
 import { useHistory, useParams } from 'react-router-dom';
-import { IconFile } from 'app/ui-kit/Icons/icon-file'; 
+import { IconFile } from 'app/ui-kit/Icons/icon-file';
 import Question from './Question';
 import LeaveComment from './LeaveComment';
 import Answers from './Answers';
-import {usePost} from "@tribeplatform/react-sdk/hooks";
+import { usePost } from '@tribeplatform/react-sdk/hooks';
+import useAnswers from './useAnswers';
 
-type Props = {}
+type Props = {};
 
 const CommunityDetail = (props: Props) => {
   const history = useHistory();
-  const params: any= useParams();
-  // const postId: string = id
-  
-  
-   console.log(params.id as string)
-   const {data: post} = usePost({ variables: {
-    id: `${params.id}`
-   } , fields: "withReply"})
-  
-   
+  const answer =useAnswers(props)
+
   return (
     <Section kind='root'>
       <Section kind='content'>
@@ -37,14 +30,12 @@ const CommunityDetail = (props: Props) => {
             { name: 'Add discussion' },
           ]}
         />
-        <Question post={post} />
-        <LeaveComment/>
-        <Answers replies={post?.replies?.nodes}/>
-        
-        
+        <Question post={answer} />
+        <LeaveComment  />
+        <Answers replies={answer?.replies?.nodes} />
       </Section>
     </Section>
-  )
-}
+  );
+};
 
-export default CommunityDetail
+export default CommunityDetail;

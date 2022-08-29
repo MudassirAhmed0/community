@@ -7,6 +7,7 @@ import { Main } from 'app/containers/main';
 import Community from 'community';
 
 const Routes = () => {
+  console.log(process.env.REACT_APP_COMMUNITY_TRIBE_ACCESS_TOKEN)
   return (
     <BrowserRouter>
       <Layout>
