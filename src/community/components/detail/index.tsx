@@ -1,21 +1,20 @@
-import React from 'react';
+import React,{useState} from 'react'
 import { Section } from 'app/ui-kit';
 import Breadcrumbs from 'app/components/common/Breadcrumbs';
-import css from './CommunityDetail.module.scss';
-import { useHistory, useParams } from 'react-router-dom';
-import { IconFile } from 'app/ui-kit/Icons/icon-file';
+import css from './CommunityDetail.module.scss'
+import { useHistory } from 'react-router-dom';
+import { IconFile } from 'app/ui-kit/Icons/icon-file'; 
 import Question from './Question';
 import LeaveComment from './LeaveComment';
 import Answers from './Answers';
-import { usePost } from '@tribeplatform/react-sdk/hooks';
-import useAnswers from './useAnswers';
 
-type Props = {};
+type Props = {}
 
 const CommunityDetail = (props: Props) => {
-  const history = useHistory();
-  const answer =useAnswers(props)
+  const [isSubmit, setIsSubmit] = useState(true);
 
+  
+  const history = useHistory();
   return (
     <Section kind='root'>
       <Section kind='content'>
@@ -30,12 +29,12 @@ const CommunityDetail = (props: Props) => {
             { name: 'Add discussion' },
           ]}
         />
-        <Question post={answer} />
-        <LeaveComment  />
-        <Answers replies={answer?.replies?.nodes} />
+        <Question/>
+        <LeaveComment setIsSubmit = {setIsSubmit}/>
+        <Answers isSubmit={isSubmit}/>
       </Section>
     </Section>
-  );
-};
+  )
+}
 
-export default CommunityDetail;
+export default CommunityDetail

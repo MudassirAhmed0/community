@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import css from './CommunityList.module.scss';
 import { IconChevron } from 'app/ui-kit/Icons/icon-chevron';
 import { Tags } from 'app/ui-kit';
@@ -7,11 +7,11 @@ import { IconComment } from 'app/ui-kit/Icons/icon-comment';
 import { Link } from 'react-router-dom';
 
 type Props = {
-  key?: string;
-  data?: any;
+  question: any;
+
 };
 
-const Question = ({ data }: Props) => {
+const Question = ({ question }: Props) => {
   return (
     <div className={css.question}>
       {/* Question Rating */}
@@ -20,13 +20,13 @@ const Question = ({ data }: Props) => {
         <span>24</span>
       </div>
       {/* Question Quick Detail */}
+      <Link to={`/community/${question.id}`}>
       <div className={css.questionDetail}>
         {/* Question Heading */}
-        <Link to={`/community/${data.id}`}>
-          <h4>{data?.title}</h4>
-          {/* Question Excert */}
-          <p dangerouslySetInnerHTML={{ __html: data?.mappingFields[1]?.value }}></p>
-        </Link>
+        <h4>{question.title}</h4>
+        {/* Question Excert */}
+        <p>{question.content}</p>
+      
         <div className={css.questionFooter}>
           {/* Question Tags */}
           <div className={css.tags}>
@@ -41,6 +41,7 @@ const Question = ({ data }: Props) => {
           </div>
         </div>
       </div>
+      </Link>
     </div>
   );
 };

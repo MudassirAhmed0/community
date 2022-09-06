@@ -1,76 +1,60 @@
-import { Avatar } from 'app/ui-kit';
-import React, { useEffect, useState } from 'react';
-import css from './CommunityDetail.module.scss';
+import { Avatar } from 'app/ui-kit'
+import React,{useEffect, useState} from 'react'
+import css from './CommunityDetail.module.scss'
+import { useParams } from 'react-router-dom';
+
 
 type Props = {
-  reply: any;
+  answer: any;
+  key: any;
+};
+type QuizParams = {
+  id: string;
 };
 
-const Answer = ({ reply }: Props) => {
-  const [content, setContent] = useState('');
-  const [img, setImg] = useState('');
-  const [createdAt, setCreatedAt] = useState('');
 
-  useEffect(() => {
-    let cleanText = reply?.shortContent.replace(/<\/?[^>]+(>|$)/g, '');
-    setContent(cleanText);
-    setImg(reply?.owner?.member?.profilePicture?.url);
-    if (reply?.createdAt) {
-      let splitted = reply?.createdAt.split('T');
-      let splitted2 = splitted[0]?.split('-');
-      let month = '';
-      switch (splitted2[1]) {
-        case '01':
-          month = 'January';
-          break;
-        case '02':
-          month = 'Feburary';
-          break;
-        case '03':
-          month = 'March';
-          break;
-        case '04':
-          month = 'April';
-          break;
-        case '05':
-          month = 'May';
-          break;
-        case '06':
-          month = 'June';
-          break;
-        case '07':
-          month = 'July';
-          break;
-        case '08':
-          month = 'August';
-          break;
-        case '09':
-          month = 'September';
-          break;
-        case '10':
-          month = 'October';
-          break;
-        case '11':
-          month = 'November';
-          break;
-        case '12':
-          month = 'December';
-          break;
-      }
-      setCreatedAt(`${splitted2[2]} ${month}, ${splitted2[0]}`);
-    }
-  }, [reply]);
+const Answer = ({answer}: Props) => {
+  const { id } = useParams<QuizParams>();
+
+
+  const deleteAnswerHandler = (type:any) => {
+    fetch(`https://k4qd9qo877.execute-api.us-east-1.amazonaws.com/dev/question/${id}/answer/${answer.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': ' application/json',
+
+        Authorization:
+          'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ijl1eHVzZGxobDB3VjlISVdDZXl3dSJ9.eyJuaWNrbmFtZSI6InRlc3QxIiwibmFtZSI6InRlc3QxQGdtYWlsLmNvbSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci8yNDVjZjA3OTQ1NGRjOWEzMzc0YTdjMDc2ZGUyNDdjYz9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRnRlLnBuZyIsInVwZGF0ZWRfYXQiOiIyMDIyLTA5LTA2VDEzOjAwOjI1Ljc3N1oiLCJlbWFpbCI6InRlc3QxQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiaXNzIjoiaHR0cHM6Ly9waW9uZWVycy1jb21tdW5pdHktdGVzdC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjMxNTM3YzhhNjZkMDZhMjM1MWRhYTRkIiwiYXVkIjoiNEpWaEFqM0cwNDN2YjExNXNkOUlmM0F4M2IzYXNHaVciLCJpYXQiOjE2NjI0NjkyMjYsImV4cCI6MTY2MjUwNTIyNiwic2lkIjoiVHdLWC03UHNuX2gtdi1PS3VhdVVXbVZjR085SGlYNTYiLCJub25jZSI6IlpUVlphME5UYmtWWFJIRkdZM0k0UVd0dGZqSlFWVEJsTWxGQ1ZGcHZkVVZpWlZocGFXMVFTbXBFZGc9PSJ9.iRyToD1k6ygQ_u9w-6zTI_lu2AY5R0XAXFe78fHVOgj15qx1NbfDzxKhNs_geyU8ckZmdeQIc-KIh33Jc15VxlDLVZNCZ3Bc6B-fthf7b8s-ZCYfOR_DlfqE5MrOfEqr-xxWjO-u8DqvVRqh-W5o2BeX3almcxxx9pKldFXyRObnrsOvGw55uXSSbsyhTnkgV_y7zzGCJfLs2H7OvFvaoKP56Z8n3buGY8jxIbdFmKTDMRdxY1tlV6_wrTS25024a-8kyVw3lZ4HO7D4hLaNURvU4PdHZOi5i0btgEgdA278PQ7AMnWFt2c8TIdk0m3AuyupxFlXG-EHdywJ-68nXQ',
+      },
+    }).then(response => {
+      window.location.reload()
+    });
+  }
+
   return (
+    
     <div className={css.answer}>
-      <div className={css.avatar}>
-        <Avatar size='xs' image={img} />
-        <span>
-          <span>{reply?.owner?.member?.name}</span> • {createdAt}{' '}
-        </span>
-      </div>
-      <p>{content}</p>
-    </div>
-  );
-};
+        <div className={css.avatar}>
+            <Avatar
+            size='xs'
+            />
+            <span><span>{answer?.author}</span> •  October 19, 2017</span>
+            <span
+                      style={{ color: 'red', marginLeft: '30px', cursor: 'pointer' }}
+                      onClick={deleteAnswerHandler}
+                      className={css.tag_hot}
+                    >
+                      Delete
+                    </span>
 
-export default Answer;
+            
+            
+        </div>
+         <p>
+       {answer.answer}
+         </p>
+    </div>
+  )
+}
+
+export default Answer
