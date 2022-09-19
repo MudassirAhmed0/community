@@ -8,10 +8,10 @@ import useFetchQuestionDetail from './useFetchQuestionDetail';
 type Props = {
   id: string;
   token: string;
-  loadNewAnswers:any
+  loadNewAnswers: any;
 };
 
-const LeaveComment = ({ id, token,loadNewAnswers }: Props) => {
+const LeaveComment = ({ id, token, loadNewAnswers }: Props) => {
   const [answer, setAnswer] = useState('');
 
   const handleChange = (event: any) => {
@@ -24,7 +24,7 @@ const LeaveComment = ({ id, token,loadNewAnswers }: Props) => {
       author: 'usama',
       answer: answer,
     };
-    fetch(`https://k4qd9qo877.execute-api.us-east-1.amazonaws.com/dev/question/${id}/answer`, {
+    fetch(`https://0rjgb20xo8.execute-api.us-east-1.amazonaws.com/dev/question/${id}/answer`, {
       method: 'POST',
       body: JSON.stringify(answers),
       headers: {
@@ -33,7 +33,7 @@ const LeaveComment = ({ id, token,loadNewAnswers }: Props) => {
       },
     }).then(res => {
       setAnswer('');
-      loadNewAnswers()
+      loadNewAnswers();
     });
   };
 

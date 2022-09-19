@@ -5,15 +5,15 @@ import React, { useEffect, useState } from 'react';
 import css from './CommunityList.module.scss';
 
 type Props = {
-  communityId:string,
-  token:string,
-  loadNewQuestions:any
+  communityId: string;
+  token: string;
+  loadNewQuestions: any;
 };
 
-const Sidebar = ({token,communityId,loadNewQuestions}: Props) => {
+const Sidebar = ({ token, communityId, loadNewQuestions }: Props) => {
   const [isShowForm, setIsShowForm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   const [state, setState] = useState({
     title: '',
     discussion: '',
@@ -44,7 +44,7 @@ const Sidebar = ({token,communityId,loadNewQuestions}: Props) => {
       upVotes: 1,
     };
 
-    fetch(`https://k4qd9qo877.execute-api.us-east-1.amazonaws.com/dev/community/${communityId}/question`, {
+    fetch(`https://0rjgb20xo8.execute-api.us-east-1.amazonaws.com/dev/community/${communityId}/question`, {
       method: 'POST',
       body: JSON.stringify(Items),
       headers: {
@@ -53,7 +53,7 @@ const Sidebar = ({token,communityId,loadNewQuestions}: Props) => {
       },
     }).then(() => {
       setState({ title: '', discussion: '' });
-      loadNewQuestions()
+      loadNewQuestions();
       setIsSubmitting(false);
       scrollToTop();
     });

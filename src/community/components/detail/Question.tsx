@@ -17,7 +17,7 @@ type Props = {
 
 const Question = ({ questionDetail, isLoading, token, id, communityId }: Props) => {
   const deleteQuestionHandler = () => {
-    fetch(`https://k4qd9qo877.execute-api.us-east-1.amazonaws.com/dev/community/${communityId}/question/${id}`, {
+    fetch(`https://0rjgb20xo8.execute-api.us-east-1.amazonaws.com/dev/community/${communityId}/question/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': ' application/json',
@@ -69,7 +69,7 @@ const Question = ({ questionDetail, isLoading, token, id, communityId }: Props) 
           </div>
           <div className={css.questionFooter}>
             {/* Question Tags */}
-          { isLoading? <Skeleton width={700} height={50}/> : <p>{questionDetail?.content}</p>}
+            {isLoading ? <Skeleton width={700} height={50} /> : <p>{questionDetail?.content}</p>}
             <div className={css.tags}>
               <span className={css.tag + ' ' + css.tag_success}>Answered</span>
               <span className={css.tag + ' ' + css.tag_hot}>🔥 Hot</span>
